@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 from PIL import Image
 import cv2
 
-from visualization.base_visualizer import BaseVisualizer
-from visualization import flowlib
+from visualize.base_visualizer import BaseVisualizer
+from visualize import flowlib
 import logging
 logging.basicConfig(format='[%(levelname)s %(asctime)s %(filename)s:%(lineno)s] %(message)s',
                     level=logging.INFO)

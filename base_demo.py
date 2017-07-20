@@ -11,7 +11,7 @@ from data.mnist_data import MnistData
 from data.box_data import BoxData
 from data.box_mnist_data import BoxMnistData
 from base_model import BaseNet, BaseGtNet
-from visualization.base_visualizer import BaseVisualizer
+from visualize.base_visualizer import BaseVisualizer
 import logging
 logging.basicConfig(format='[%(levelname)s %(asctime)s %(filename)s:%(lineno)s] %(message)s',
                             level=logging.INFO)
