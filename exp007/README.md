@@ -1,6 +1,5 @@
-## Same as Exp006 But Use Pixel Average for Occlusion Place 
+## Same as Exp004 But Use Pixel Average for Occlusion Place 
 
-- Baseline: Exp006
 - No Occlusion modeling, predict conflict pixel values as the average between all coming pixels
 - Predict motion for every pixel
 - Photometric loss for pixels that are not occluded, then divided by the total number of existing pixels
@@ -11,26 +10,27 @@
 
 | Exp  | Test | Gt   | EPE  | Note |
 | ---- | ---- | ---- | ---- | ---- | 
-| 01 | 94 | 81 | 0.02 | box, m_range=1 |
-| 02 | 93 | 91 | 0.02 | mnist, m_range=1 |
-| 03 | 99 | 96 | 0.04 | box, m_range=1, bg_move |
-| 04 | 97 | 96 | 0.05 | mnist, m_range=1, bg_move |
-| 05 | 87 | 80 | 0.07 | box, m_range=1, num_objects=2 |
-| 06 | 90 | 90 | 0.05 | mnist, m_range=1, num_objects=2 |
-| 07 | 93 | 80 | 0.08 | box, m_range=2 |
-| 08 | 91 | 86 | 0.09 | mnist, m_range=2 |
-| 09 | 98 | 94 | 0.13 | box, m_range=2, bg_move |
-| 10 | 96 | 93 | 0.15 | mnist, m_range=2, bg_move |
-| 11 | 87 | 78 | 0.19 | box, m_range=2, num_objects=2 |
-| 12 | 87 | 85 | 0.18 | mnist, m_range=2, num_objects=2 |
-| 13 | 94 | 82 |  | box, m_range=2, image_size=64 |
-| 14 | 84 | 86 |  | mnist, m_range=2, image_size=64 |
-| 15 |  | 97 |  | box, m_range=2, image_size=64, bg_move |
-| 16 |  | 98 |  | mnist, m_range=2, image_size=64, bg_move |
-| 17 |  | 81 |  | box, m_range=2, num_objects=2, image_size=64 |
-| 18 |  | 86 |  | mnist, m_range=2, num_objects=2, image_size=64 |
-| 19 |  | 80 |  | box, m_range=2, num_objects=2, num_frame=4 |
+| 01 | 0.81 | 77 | 0.03 | box, m_range=1 |
+| 02 | 0.80 | 85 | 0.03 | mnist, m_range=1 |
+| 03 | 0.88 | 92 | 0.11 | box, m_range=1, bg_move |
+| 04 | 0.86 | 89 | 0.12 | mnist, m_range=1, bg_move |
+| 05 | 0.74 | 71 | 0.08 | box, m_range=1, num_objects=2 |
+| 06 | 0.75 | 80 | 0.07 | mnist, m_range=1, num_objects=2 |
+| 07 | 0.86 | 79 | 0.06 | box, m_range=2 |
+| 08 | 0.84 | 84 | 0.06 | mnist, m_range=2 |
+| 09 | 0.89 | 91 | 0.19 | box, m_range=2, bg_move |
+| 10 | 0.87 | 88 | 0.23 | mnist, m_range=2, bg_move |
+| 11 | 0.80 | 76 | 0.14 | box, m_range=2, num_objects=2 |
+| 12 | 0.78 | 81 | 0.15 | mnist, m_range=2, num_objects=2 |
+| 13 |  |  |  | box, m_range=2, image_size=64 |
+| 14 |  |  |  | mnist, m_range=2, image_size=64 |
+| 15 |  |  |  | box, m_range=2, image_size=64, bg_move |
+| 16 |  |  |  | mnist, m_range=2, image_size=64, bg_move |
+| 17 |  |  |  | box, m_range=2, num_objects=2, image_size=64 |
+| 18 |  |  |  | mnist, m_range=2, num_objects=2, image_size=64 |
+| 19 |  |  |  | box, m_range=2, num_objects=2, num_frame=4 |
 
 ### Take Home Message
 
-- Even worse at dealing occlusions, not recommend
+- Slightly worse than Exp004
+- We still need a better model handling occlusion confliction.

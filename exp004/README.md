@@ -1,9 +1,7 @@
-## Reconstruction Consider Moving Pixels Occlude Static Pixels
+## Same as Exp002 But Loss Divided by Total Number of Old Pixels
 
-- Baseline: Exp002
 - Occlusion modeling, moving pixels will occlude static pixels
 - Predict motion for every pixel
-- Photometric loss for every pixel
 - Photometric loss for pixels that are not occluded, then divided by the total number of existing pixels
 
 ### Results
@@ -12,18 +10,18 @@
 
 | Exp  | Test | Gt   | EPE  | Note |
 | ---- | ---- | ---- | ---- | ---- | 
-| 01 | 100 | 100 | 0.00 | box, m_range=1 |
-| 02 | 97 | 100 | 0.01 | mnist, m_range=1 |
-| 03 | 100 | 96 | 0.02 | box, m_range=1, bg_move |
-| 04 | 97 | 95 | 0.05 | mnist, m_range=1, bg_move |
-| 05 | 89 | 97 | 0.05 | box, m_range=1, num_objects=2 |
-| 06 | 91 | 95 | 0.03 | mnist, m_range=1, num_objects=2 |
-| 07 | 99 | 100 | 0.01 | box, m_range=2 |
-| 08 | 97 | 100 | 0.02 | mnist, m_range=2 |
-| 09 | 99 | 92 | 0.10 | box, m_range=2, bg_move |
-| 10 | 97 | 90 | 0.19 | mnist, m_range=2, bg_move |
-| 11 | 87 | 94 | 0.09 | box, m_range=2, num_objects=2 |
-| 12 | 89 | 93 | 0.08 | mnist, m_range=2, num_objects=2 |
+| 01 | 0.86 | 80 | 0.03 | box, m_range=1 |
+| 02 | 0.81 | 87 | 0.03 | mnist, m_range=1 |
+| 03 | 0.88 | 92 | 0.11 | box, m_range=1, bg_move |
+| 04 | 0.86 | 89 | 0.11 | mnist, m_range=1, bg_move |
+| 05 | 0.75 | 73 | 0.08 | box, m_range=1, num_objects=2 |
+| 06 | 0.74 | 81 | 0.06 | mnist, m_range=1, num_objects=2 |
+| 07 | 0.89 | 89 | 0.04 | box, m_range=2 |
+| 08 | 0.86 | 92 | 0.04 | mnist, m_range=2 |
+| 09 | 0.88 | 90 | 0.18 | box, m_range=2, bg_move |
+| 10 | 0.86 | 87 | 0.23 | mnist, m_range=2, bg_move |
+| 11 | 0.78 | 82 | 0.10 | box, m_range=2, num_objects=2 |
+| 12 | 0.77 | 85 | 0.11 | mnist, m_range=2, num_objects=2 |
 | 13 |  |  |  | box, m_range=2, image_size=64 |
 | 14 |  |  |  | mnist, m_range=2, image_size=64 |
 | 15 |  |  |  | box, m_range=2, image_size=64, bg_move |
@@ -34,3 +32,4 @@
 
 ### Take Home Message
 
+- So far the best loss I have found for 3 frames

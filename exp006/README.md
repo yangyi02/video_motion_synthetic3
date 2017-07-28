@@ -1,4 +1,4 @@
-## Same as Exp005-1 But Predict occlusion using neural nets 
+## Same as Exp004 But Predict Occlusion Using Neural Nets 
 
 - Occlusion modeling, predict occlusion using neural nets instead of derived from motion
 - Predict motion for every pixel
@@ -11,28 +11,27 @@
 
 | Exp  | Test | Gt   | EPE  | Note |
 | ---- | ---- | ---- | ---- | ---- | 
-| 01 | 99 | 100 | 0.02 | box, m_range=1 |
-| 02 | 95 | 100 | 0.02 | mnist, m_range=1 |
-| 03 | 99 | 100 | 0.02 | box, m_range=1, bg_move |
-| 04 | 97 | 100 | 0.04 | mnist, m_range=1, bg_move |
-| 05 | 85 | 100 | 0.06 | box, m_range=1, num_objects=2 |
-| 06 | 88 | 100 | 0.05 | mnist, m_range=1, num_objects=2 |
-| 07 | 97 | 100 | 0.08 | box, m_range=2 |
-| 08 | 96 | 100 | 0.03 | mnist, m_range=2 |
-| 09 | 98 | 100 | 0.06 | box, m_range=2, bg_move |
-| 10 | 96 | 100 | 0.10 | mnist, m_range=2, bg_move |
-| 11 | 82 | 100 | 0.15 | box, m_range=2, num_objects=2 |
-| 12 | 85 | 100 | 0.12 | mnist, m_range=2, num_objects=2 |
-| 13 | 98 | 100 |  | box, m_range=2, image_size=64 |
-| 14 | 96 | 100 |  | mnist, m_range=2, image_size=64 |
-| 15 |  | 96 |  | box, m_range=2, image_size=64, bg_move |
-| 16 |  | 97 |  | mnist, m_range=2, image_size=64, bg_move |
-| 17 |  | 96 |  | box, m_range=2, num_objects=2, image_size=64 |
-| 18 |  | 99 |  | mnist, m_range=2, num_objects=2, image_size=64 |
-| 19 |  | 95 |  | box, m_range=2, num_objects=2, num_frame=4 |
+| 01 | 0.80 | 79 | 0.08 | box, m_range=1 |
+| 02 | 0.78 | 87 | 0.05 | mnist, m_range=1 |
+| 03 | 0.86 | 92 | 0.15 | box, m_range=1, bg_move |
+| 04 | 0.84 | 89 | 0.14 | mnist, m_range=1, bg_move |
+| 05 | 0.72 | 71 | 0.14 | box, m_range=1, num_objects=2 |
+| 06 | 0.73 | 81 | 0.12 | mnist, m_range=1, num_objects=2 |
+| 07 | 0.87 | 89 | 0.08 | box, m_range=2 |
+| 08 | 0.85 | 92 | 0.06 | mnist, m_range=2 |
+| 09 | 0.87 | 90 | 0.25 | box, m_range=2, bg_move |
+| 10 | 0.86 | 86 | 0.21 | mnist, m_range=2, bg_move |
+| 11 | 0.76 | 82 | 0.20 | box, m_range=2, num_objects=2 |
+| 12 | 0.76 | 85 | 0.17 | mnist, m_range=2, num_objects=2 |
+| 13 |  |  |  | box, m_range=2, image_size=64 |
+| 14 |  |  |  | mnist, m_range=2, image_size=64 |
+| 15 |  |  |  | box, m_range=2, image_size=64, bg_move |
+| 16 |  |  |  | mnist, m_range=2, image_size=64, bg_move |
+| 17 |  |  |  | box, m_range=2, num_objects=2, image_size=64 |
+| 18 |  |  |  | mnist, m_range=2, num_objects=2, image_size=64 |
+| 19 |  |  |  | box, m_range=2, num_objects=2, num_frame=4 |
 
 ### Take Home Message
 
-- Significantly Better than exp005-1.
-- But we still need a better model on occlusion.
-- However, compared to Exp005 and Exp005-1, it is happy to see the model never over-estimate occlusion in the background boundary.
+- Using neural net to predict which will disappear in the next frame is not easy.
+- We still need a better model on occlusion.
