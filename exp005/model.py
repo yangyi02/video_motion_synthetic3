@@ -81,8 +81,9 @@ class Net(nn.Module):
         m_mask = F.softmax(self.conv(x11))
 
         out_mask = F.conv2d(m_mask, self.m_kernel, None, 1, self.m_range, 1, self.m_kernel.size(0))
-        seg = construct_seg(out_mask, self.m_kernel, self.m_range)
-        pred = construct_image(im_input[:, -self.im_channel:, :, :], out_mask, self.m_kernel, self.m_range)
+        seg = out_mask.sum(1)
+        im = im_input[:, -self.im_channel:, :, :]
+        pred = construct_image(im, out_mask, self.m_kernel, self.m_range)
         conflict = torch.abs(seg - 1)
         unocclude = F.relu(1 - conflict)
         occlude = 1 - unocclude
@@ -105,8 +106,9 @@ class GtNet(nn.Module):
     def forward(self, im_input, gt_motion):
         m_mask = self.motion2mask(gt_motion, self.n_class, self.m_range)
         out_mask = F.conv2d(m_mask, self.m_kernel, None, 1, self.m_range, 1, self.m_kernel.size(0))
-        seg = construct_seg(out_mask, self.m_kernel, self.m_range)
-        pred = construct_image(im_input[:, -self.im_channel:, :, :], out_mask, self.m_kernel, self.m_range)
+        seg = out_mask.sum(1)
+        im = im_input[:, -self.im_channel:, :, :]
+        pred = construct_image(im, out_mask, self.m_kernel, self.m_range)
         conflict = torch.abs(seg - 1)
         unocclude = F.relu(1 - conflict)
         occlude = 1 - unocclude
@@ -131,15 +133,6 @@ class GtNet(nn.Module):
                     tmp = torch.ger(b, a)
                     m_mask[i, :, j, k] = tmp.view(-1)
         return m_mask
-
-
-def construct_seg(out_mask, m_kernel, m_range):
-    seg_expand = Variable(torch.ones(out_mask.size()))
-    if torch.cuda.is_available():
-        seg_expand = seg_expand.cuda()
-    nearby_seg = F.conv2d(seg_expand, m_kernel, None, 1, m_range, 1, m_kernel.size(0))
-    seg = (nearby_seg * out_mask).sum(1)
-    return seg
 
 
 def construct_image(im, out_mask, m_kernel, m_range):

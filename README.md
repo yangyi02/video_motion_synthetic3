@@ -10,7 +10,7 @@
 | 006  | 0.08 | 0.05 | 0.15 | 0.14 | 0.14 | 0.12 | 0.08 | 0.06 | 0.25 | 0.21 | 0.20 | 0.17 | 004  | Bad  | Neural net predict disappear |
 | 007  | 0.03 | 0.03 | 0.11 | 0.12 | 0.08 | 0.07 | 0.06 | 0.06 | 0.19 | 0.23 | 0.14 | 0.15 | 004  | Bad  | Use avearge value at occlusion |
 
-| 008  |  |  |  |  |  |  |  |  |  |  |  |  |   |  | Predict relative depth |
+| 008  | 0.05 | 0.05 | 0.14 | 0.13 | 0.12 | 0.12 | 0.08 | 0.18 | 0.24 | 0.25 | 0.22 | 0.35 | 004  | Bad  | Predict relative depth |
 | 009  |  |  |  |  |  |  |  |  |  |  |  |  |   |  | Predict relative depth using only one image |
 | 010  |  |  |  |  |  |  |  |  |  |  |  |  |   |  | Add segmentation temporal consistency loss |
 

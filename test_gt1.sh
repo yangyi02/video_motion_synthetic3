@@ -19,3 +19,6 @@ cd ..
 cd exp007
 sh test_gt1.sh
 cd ..
+cd exp008
+sh test_gt1.sh
+cd ..

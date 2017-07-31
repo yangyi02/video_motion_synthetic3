@@ -124,15 +124,6 @@ class GtNet(nn.Module):
         return m_mask
 
 
-def construct_seg(out_mask, m_kernel, m_range):
-    seg_expand = Variable(torch.ones(out_mask.size()))
-    if torch.cuda.is_available():
-        seg_expand = seg_expand.cuda()
-    nearby_seg = F.conv2d(seg_expand, m_kernel, None, 1, m_range, 1, m_kernel.size(0))
-    seg = (nearby_seg * out_mask).sum(1)
-    return seg
-
-
 def construct_image(im, out_mask, m_kernel, m_range):
     pred = Variable(torch.Tensor(im.size()))
     if torch.cuda.is_available():

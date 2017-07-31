@@ -1,0 +1,11 @@
+[INFO 2017-07-31 14:18:41,133 demo.py:158] Namespace(batch_size=64, bg_move=False, bg_noise=0.5, bidirection=False, data='box', display=True, fg_noise=0.1, image_size=32, init_model_path='./model.pth', learning_rate=0.001, method='unsupervised', motion_range=1, motion_type='translation', num_frame=3, num_objects=1, save_dir='./', save_display=True, save_display_dir='./', test=True, test_epoch=10, test_gt=False, test_interval=100, train=False, train_epoch=1000)
+Traceback (most recent call last):
+  File "../demo.py", line 168, in <module>
+    main()
+  File "../demo.py", line 163, in main
+    demo.test_unsupervised()
+  File "../demo.py", line 102, in test_unsupervised
+    'test_%d.png' % epoch)
+  File "/home/yi/code/video_motion_synthetic3/exp009/visualizer.py", line 73, in visualize_result
+    img[y1:y2, x1:x2, :] = depth_map
+ValueError: could not broadcast input array from shape (9,32,3,4) into shape (32,32,3)
