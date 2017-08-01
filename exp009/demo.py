@@ -136,7 +136,7 @@ class Demo(BaseDemo):
                 gt_motion = gt_motion.cuda()
                 gt_depth_in = gt_depth_in.cuda()
                 gt_depth_out = gt_depth_out.cuda()
-            im_pred, m_mask, depth, appear, conflict, pred_depth, depth_out = self.model_gt(im_input, im_output, gt_motion_label, gt_depth_in, gt_depth_out)
+            im_pred, m_mask, depth, appear, conflict, pred_depth, depth_out = self.model_gt(im_input, im_output, gt_motion, gt_depth_in, gt_depth_out)
             im_diff = (1 - appear).expand_as(im_output) * (im_pred - im_output)
             im_diff = im_diff / (1 - appear).sum(3).sum(2).expand_as(im_diff)
             depth_diff = (1 - appear).expand_as(depth_out) * (pred_depth - depth_out)
